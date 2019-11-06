@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+ <title>Jsf Hibernate Agenda</title>
+</h:head>
+<h:body>
+
+	<h:form>
+	    <h:outputLabel value="Id" />
+		<h:inputText value="#{pessoaBean.pessoa.id}" readonly="true"/><br />
+		<h:outputLabel value="Nome" />
+		<h:inputText value="#{pessoaBean.pessoa.nome}"/><br />
+		<h:outputLabel value="Sborenome" />
+		<h:inputText value="#{pessoaBean.pessoa.sobrenome}"/><br />
+		<h:outputLabel value="Idade" />
+		<h:inputText value="#{pessoaBean.pessoa.idade}"/><br />
+		
+		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" /><br />
+		<h:commandButton value="Editar" action="#{pessoaBean.salvarEditar}" /><br />
+		<h:commandButton value="Delete" action="#{pessoaBean.delete}" /><br />
+		
+		<h:dataTable value="#{pessoaBean.pessoas}" var="p">
+			<h:column>
+				<h:outputText value = "#{p.id}" />
+				<h:outputText value = "#{p.nome}" />
+				<h:outputText value = "#{p.sobrenome}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+
+</h:body>
+</html>
