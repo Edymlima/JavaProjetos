@@ -20,7 +20,7 @@
 		<h:commandButton value="Editar" action="#{pessoaBean.salvarEditar}" /><br />
 		<h:commandButton value="Delete" action="#{pessoaBean.delete}" /><br />
 		
-		<h:dataTable value="#{pessoaBean.pessoas}" var="p">
+		<h:dataTable value="#{pessoaBean.pessoas}" var="p" border="1">
 			<h:column>
 				<h:outputText value = "#{p.id}" />
 				<h:outputText value = "#{p.nome}" />
