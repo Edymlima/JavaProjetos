@@ -1,35 +1,74 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<html 
+xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
  <title>Jsf Hibernate Agenda</title>
 </h:head>
 <h:body>
 
-	<h:form>
-	    <h:outputLabel value="Id" />
-		<h:inputText value="#{pessoaBean.pessoa.id}" readonly="true"/><br />
-		<h:outputLabel value="Nome" />
-		<h:inputText value="#{pessoaBean.pessoa.nome}"/><br />
-		<h:outputLabel value="Sborenome" />
-		<h:inputText value="#{pessoaBean.pessoa.sobrenome}"/><br />
-		<h:outputLabel value="Idade" />
-		<h:inputText value="#{pessoaBean.pessoa.idade}"/><br />
-		
-		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" /><br />
-		<h:commandButton value="Editar" action="#{pessoaBean.salvarEditar}" /><br />
-		<h:commandButton value="Delete" action="#{pessoaBean.delete}" /><br />
-		
-		<h:dataTable value="#{pessoaBean.pessoas}" var="p" border="1">		    
+ <h:form>
+	
+	 <table>
+		 <tr>
+		 	<td><h:outputLabel value="Id" /></td>
+			<td><h:inputText value="#{pessoaBean.pessoa.id}" readonly="true"/></td>
+		</tr>
+		<tr>	
+			<td><h:outputLabel value="Nome" /></td>
+			<td><h:inputText value="#{pessoaBean.pessoa.nome}"/></td>
+		</tr>
+		<tr>	
+			<td><h:outputLabel value="Sobrenome" /></td>
+			<td><h:inputText value="#{pessoaBean.pessoa.sobrenome}"/></td>
+		</tr>
+		<tr>	
+			<td><h:outputLabel value="Idade" /></td>
+			<td><h:inputText value="#{pessoaBean.pessoa.idade}"/></td>
+		</tr>
+	   </table>
+
+		<hr/>
+		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" /> 
+		<h:commandButton value="Editar" action="#{pessoaBean.salvarEditar}" />
+		<h:commandButton value="Delete" action="#{pessoaBean.delete}" />
+		<hr/>
+		<h:dataTable value="#{pessoaBean.pessoas}" var="p" border="1" >	
 			<h:column>
+			    <f:facet name = "header">ID</f:facet>
 				<h:outputText value = "#{p.id}" />
 			</h:column>	
 			<h:column>
+			    <f:facet name = "header">Nome</f:facet>
 				<h:outputText value = "#{p.nome}" />
 			</h:column>	
 			<h:column>
+			    <f:facet name = "header">Sobrenome</f:facet>
 				<h:outputText value = "#{p.sobrenome}" />
 			</h:column>
+			<h:column>
+			    <f:facet name = "header">Idade</f:facet>
+				<h:outputText value = "#{p.idade}" />
+			</h:column>
+			
+			<h:column>
+			    <f:facet name = "header">Editar</f:facet>
+				<h:commandLink>
+				   <h:graphicImage  width="32" height="30" url="data:image/png;base64,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" />
+					<f:setPropertyActionListener value="#{p}" target="#{pessoaBean.pessoa}" />
+				</h:commandLink>
+			</h:column>
+			
+			<h:column>
+			    <f:facet name = "header">Excluir</f:facet>
+				<h:commandLink  action="#{pessoaBean.delete}">
+				    <h:graphicImage  width="32" height="30" url="https://previews.123rf.com/images/arhimicrostok/arhimicrostok1706/arhimicrostok170600362/79549735-trash-can-icon-delete-move-to-trash-clear-the-disk-space-vector-illustration-.jpg"/>
+					<f:setPropertyActionListener value="#{p}" target="#{pessoaBean.pessoa}" />
+				</h:commandLink>
+			</h:column>
+			
 		</h:dataTable>
 	</h:form>
 
