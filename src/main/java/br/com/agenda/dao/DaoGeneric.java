@@ -58,6 +58,7 @@ public class DaoGeneric<E> {
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		
+		@SuppressWarnings("unchecked")
 		List<E> resultado = entityManager.createQuery("from " + entidades.getName()).getResultList();
 		
 		entityTransaction.commit();

@@ -3,6 +3,7 @@
 	<persistence-unit name="AgendaJpa">
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 	<class>br.com.agenda.entidades.Pessoa</class>
+	<class>br.com.agenda.entidades.Telefone</class>
 	
 	<properties>
 		 <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/java" ></property>
